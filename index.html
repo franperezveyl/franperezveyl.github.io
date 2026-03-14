@@ -22,7 +22,7 @@
   .photo-col { display: flex; flex-direction: column; align-items: center; gap: 16px; }
   .photo-col img { width: 200px; height: 240px; object-fit: cover; object-position: top; filter: grayscale(15%); border: 1px solid var(--rule); display: block; }
   .social-links { display: flex; gap: 14px; align-items: center; justify-content: center; }
-  .social-links a { display: inline-flex; opacity: 1; transition: opacity 0.2s; border: none; outline: none; box-shadow: none; background: none; }
+  .social-links a { display: inline-flex; opacity: 1; transition: opacity 0.2s; }
   .social-links a:hover { opacity: 0.65; }
   .social-links img { width: 28px; height: 28px; }
 
@@ -110,7 +110,7 @@
     <div class="title">Assistant Professor · Business School, Universidad Adolfo Ibañez</div>
     <div class="contact">
       Diagonal Las Torres 2640, Peñalolén, Santiago, Chile<br>
-      <a href="/cdn-cgi/l/email-protection#6c010a1e0d020f051f0f0d421c091e09162c190d05420f00"><span class="__cf_email__" data-cfemail="b7dad1c5d6d9d4dec4d4d699c7d2c5d2cdf7c2d6de99d4db">[email&#160;protected]</span></a>
+      <a href="mailto:mfrancisca.perez@uai.cl">mfrancisca.perez@uai.cl</a>
     </div>
     <a href="https://drive.google.com/file/d/1a5U8J92BGoEzKfPeabXoLf1Qn-KCoYdW/view?usp=share_link" class="cv-link" target="_blank">Curriculum Vitae</a>
   </div>
@@ -259,7 +259,17 @@
 </section>
 
 <footer>
-  &copy; Francisca Pérez &nbsp;&middot;&nbsp; <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bdd0dbcfdcd3ded4cededc93cdd8cfd8c7fdc8dcd493ded1">[email&#160;protected]</a>
+  &copy; Francisca Pérez &nbsp;&middot;&nbsp; mfrancisca.perez@uai.cl
 </footer>
 
-<
+<script>
+  function toggleAbstract(btn) {
+    var abstract = btn.nextElementSibling;
+    var isOpen = abstract.classList.contains('open');
+    abstract.classList.toggle('open');
+    btn.textContent = isOpen ? 'Abstract' : 'Hide abstract';
+  }
+</script>
+
+</body>
+</html>
