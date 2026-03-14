@@ -7,14 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --ink: #1a1a1a;
-    --muted: #6b6b6b;
-    --accent: #1e5e3a;
-    --bg: #ffffff;
-    --rule: #ddd8cf;
-    --card: #f3f1ec;
-  }
+  :root { --ink: #1a1a1a; --muted: #6b6b6b; --accent: #1e5e3a; --bg: #ffffff; --rule: #ddd8cf; --card: #f3f1ec; }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body { background: var(--bg); color: var(--ink); font-family: 'DM Sans', sans-serif; font-size: 17px; line-height: 1.7; }
@@ -23,8 +16,29 @@
   nav ul { list-style: none; display: flex; gap: 32px; }
   nav ul a { font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
   nav ul a:hover { color: var(--accent); }
-  #home { padding-top: 120px; padding-bottom: 40px; max-width: 860px; margin: 0 auto; padding-left: 48px; padding-right: 48px; display: grid; grid-template-columns: 200px 1fr; gap: 56px; align-items: start; }
+
+  #home {
+    padding-top: 120px;
+    padding-bottom: 40px;
+    max-width: 860px;
+    margin: 0 auto;
+    padding-left: 48px;
+    padding-right: 48px;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+
+  .photo-col { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+
   #home img { width: 200px; height: 240px; object-fit: cover; object-position: top; filter: grayscale(15%); border: 1px solid var(--rule); }
+
+  .social-icons { display: flex; gap: 16px; justify-content: center; align-items: center; }
+  .social-icons a { display: flex; align-items: center; justify-content: center; opacity: 0.75; transition: opacity 0.2s; }
+  .social-icons a:hover { opacity: 1; }
+  .social-icons img { width: 28px; height: 28px; object-fit: contain; }
+
   .hero-text h1 { font-family: 'EB Garamond', serif; font-size: 42px; font-weight: 400; line-height: 1.1; margin-bottom: 6px; color: var(--ink); }
   .hero-text .title { font-size: 14px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
   .hero-text .contact { font-size: 13.5px; color: var(--muted); line-height: 2; }
@@ -32,8 +46,10 @@
   .hero-text .contact a:hover { text-decoration: underline; }
   .cv-link { display: inline-block; margin-top: 20px; padding: 8px 20px; border: 1px solid var(--accent); color: var(--accent); font-size: 12.5px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: background 0.2s, color 0.2s; }
   .cv-link:hover { background: var(--accent); color: white; }
+
   .about-wrapper { max-width: 860px; margin: 0 auto; padding: 0 48px 64px; }
   .about-blurb { font-family: 'EB Garamond', serif; font-size: 18px; line-height: 1.75; color: #333; border-left: 2px solid var(--accent); padding-left: 20px; }
+
   section { max-width: 860px; margin: 0 auto; padding: 64px 48px; border-top: 1px solid var(--rule); }
   section h2 { font-family: 'EB Garamond', serif; font-size: 22px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); margin-bottom: 40px; }
   .research-group { margin-bottom: 48px; }
@@ -46,16 +62,22 @@
   .paper-meta { font-family: 'EB Garamond', serif; font-size: 17px; color: var(--muted); margin-bottom: 8px; }
   .paper-abstract { font-family: 'EB Garamond', serif; font-size: 17px; color: #444; line-height: 1.7; display: none; margin-top: 10px; }
   .paper-abstract.open { display: block; }
-  .abstract-toggle { display: inline-block; margin-top: 8px; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); cursor: pointer; border: 1px solid var(--accent); padding: 3px 10px; background: none; font-family: 'DM Sans', sans-serif; transition: background 0.2s, color 0.2s; }
-  .abstract-toggle:hover { background: var(--accent); color: white; }
-  .paper-links { margin-top: 8px; display: flex; gap: 12px; flex-wrap: wrap; }
-  .paper-links a { font-size: 12px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent); text-decoration: none; }
-  .paper-links a:hover { text-decoration: underline; }
+
+  /* All paper action links — same style for Abstract, Paper, Slides */
+  .paper-links { margin-top: 8px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .paper-links a, .paper-links button {
+    font-size: 12px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase;
+    color: var(--accent); text-decoration: none; background: none; border: none;
+    cursor: pointer; font-family: 'DM Sans', sans-serif; padding: 0;
+  }
+  .paper-links a:hover, .paper-links button:hover { text-decoration: underline; }
+
   .teaching-list { display: grid; gap: 20px; }
   .teaching-item { background: var(--card); padding: 20px 24px; border-left: 3px solid var(--accent); }
   .teaching-item .course { font-family: 'EB Garamond', serif; font-size: 18px; margin-bottom: 4px; }
   .teaching-item .level { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
   .teaching-item .institution { font-size: 13.5px; color: #555; }
+
   .media-list { display: grid; gap: 14px; }
   .media-item { display: flex; align-items: baseline; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--rule); }
   .media-item:last-child { border-bottom: none; }
@@ -64,7 +86,9 @@
   .media-title a { color: var(--ink); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s, color 0.2s; }
   .media-title a:hover { color: var(--accent); border-bottom-color: var(--accent); }
   .media-pub { font-size: 15px; color: var(--muted); margin-left: 8px; font-style: italic; }
+
   footer { text-align: center; padding: 32px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--rule); }
+
   @media (max-width: 640px) {
     nav { padding: 0 20px; } nav ul { gap: 16px; }
     #home { grid-template-columns: 1fr; padding: 100px 24px 40px; gap: 32px; }
@@ -86,7 +110,39 @@
 </nav>
 
 <div id="home">
-  <img src="FPerez_foto.jpeg" alt="Francisca Pérez">
+  <div class="photo-col">
+    <img src="FPerez_foto.jpeg" alt="Francisca Pérez">
+    <div class="social-icons">
+      <!-- Google Scholar -->
+      <a href="https://scholar.google.com/citations?user=7reiZ4gAAAAJ&hl=es" target="_blank" title="Google Scholar">
+        <svg width="28" height="28" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 19L0 6l24-6 24 6-24 13z" fill="#4285F4"/>
+          <path d="M24 19v23c-6-2-18-8-18-18V12l18 7z" fill="#356AC3"/>
+          <path d="M24 19v23c6-2 18-8 18-18V12L24 19z" fill="#A8C7FA"/>
+          <circle cx="24" cy="34" r="10" fill="#4285F4"/>
+          <circle cx="24" cy="34" r="7" fill="white"/>
+          <text x="24" y="38" text-anchor="middle" font-size="9" font-weight="bold" fill="#4285F4" font-family="Arial">S</text>
+        </svg>
+      </a>
+      <!-- ORCID -->
+      <a href="https://orcid.org/0000-0001-9197-3518" target="_blank" title="ORCID">
+        <svg width="28" height="28" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="128" cy="128" r="128" fill="#A6CE39"/>
+          <path d="M86 60h20v136H86z" fill="white"/>
+          <circle cx="96" cy="47" r="13" fill="white"/>
+          <path d="M120 60h52c46 0 70 28 70 68s-24 68-70 68h-52V60zm20 18v100h30c32 0 50-20 50-50s-18-50-50-50h-30z" fill="white"/>
+        </svg>
+      </a>
+      <!-- Twitter/X -->
+      <a href="https://twitter.com/mfperezv" target="_blank" title="Twitter">
+        <svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="12" fill="#1DA1F2"/>
+          <path d="M19 7.5a6.3 6.3 0 01-1.8.5 3.15 3.15 0 001.38-1.74 6.3 6.3 0 01-2 .76A3.14 3.14 0 0012.46 10a8.9 8.9 0 01-6.47-3.28 3.14 3.14 0 00.97 4.19 3.1 3.1 0 01-1.42-.39v.04a3.14 3.14 0 002.52 3.08 3.16 3.16 0 01-1.42.05 3.14 3.14 0 002.93 2.18A6.3 6.3 0 015 17.17 8.88 8.88 0 009.82 18.5c5.78 0 8.94-4.79 8.94-8.95l-.01-.41A6.37 6.37 0 0020 7.56 6.25 6.25 0 0119 7.5z" fill="white"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
   <div class="hero-text">
     <h1>Francisca Pérez</h1>
     <div class="title">Assistant Professor · Business School, Universidad Adolfo Ibañez</div>
@@ -113,29 +169,33 @@
     <div class="paper">
       <div class="paper-title">Sibling Arrival, Family Composition, and the Schooling Trajectories of Firstborns</div>
       <div class="paper-meta">with Valentina Paredes &mdash; Draft coming soon</div>
-      <button class="abstract-toggle" onclick="toggleAbstract(this)">Abstract</button>
+      <div class="paper-links">
+        <button onclick="toggleAbstract(this)">Abstract</button>
+      </div>
       <div class="paper-abstract">Family characteristics shape educational outcomes as younger siblings can increase caregiving demands and reduce parental resources. Using Chilean administrative data and a student fixed-effects design, we analyze how younger siblings affect firstborns' grades, attendance, and dropout rates from birth through adolescence. While the arrival of a younger sibling generally lowers grades, it simultaneously improves school attendance and reduces school dropout. Crucially, the negative impacts on achievement are concentrated in households undergoing restructuring, whereas effects are significantly attenuated or reversed for full-siblings who share both biological parents. These findings suggest that the "sibling effect" is closely tied to household stability and gendered caregiving roles.</div>
     </div>
 
     <div class="paper">
       <div class="paper-title">Learning or Screening? Experimental Evidence on Feedback in a Startup Accelerator</div>
       <div class="paper-meta">with Rodrigo Wagner &mdash; Draft coming soon</div>
-      <button class="abstract-toggle" onclick="toggleAbstract(this)">Abstract</button>
+      <div class="paper-links">
+        <button onclick="toggleAbstract(this)">Abstract</button>
+      </div>
       <div class="paper-abstract">Evaluative feedback is a common feature of startup accelerators and venture competitions, yet its effects are theoretically ambiguous. We address this challenge using a randomized field experiment in Start-Up Chile. Among 88 admitted ventures, half were randomly assigned to receive written feedback on their business plans from independent expert judges. We find that feedback increases the likelihood of securing external funding by 7 percentage points and raises the amount raised by approximately $15,000 on average, and raises the likelihood of survival several years after the program. The results point to a value-enhancing role of feedback rather than a pure screening mechanism.</div>
     </div>
 
     <div class="paper">
       <div class="paper-title">Regulating Flexible Labor Contracts: Substitution and Allocative Efficiency</div>
       <div class="paper-meta">with Alejandro Micco</div>
-      <button class="abstract-toggle" onclick="toggleAbstract(this)">Abstract</button>
+      <div class="paper-links">
+        <button onclick="toggleAbstract(this)">Abstract</button>
+      </div>
       <div class="paper-abstract">Regulations governing flexible labor contracts alter firms' adjustment margins and the allocation of labor across heterogeneous producers. Using Chile's 2006 labor reform, which increased the cost of temporary agency workers, as a policy shock, we combine plant-level data with a dynamic industry equilibrium model featuring imperfect substitution between regular and temporary agency workers. The model predicts higher output prices, driven roughly equally by increased labor misallocation and by the direct increase in labor costs. The results highlight how regulating flexible employment arrangements reshapes aggregate outcomes through both cost and allocation channels.</div>
     </div>
 
     <div class="paper">
       <div class="paper-title"><a href="https://www.iza.org/de/publications/dp/16762/the-cost-of-following-traditional-gender-norms-evidence-from-a-paid-leave-for-seriously-ill-children" target="_blank">The Cost of Following Traditional Gender Norms: Evidence from a Paid Leave for Seriously Ill Children</a></div>
       <div class="paper-meta">with Valentina Paredes and Francisco Pino &mdash; IZA Discussion Paper No. 16762</div>
-      <button class="abstract-toggle" onclick="toggleAbstract(this)">Abstract</button>
-      <div class="paper-abstract">We exploit the introduction in February 2018 of a new paid parental leave program to care for a seriously ill child in Chile (SANNA) to identify the role of both economic incentives and gender norms on families' decisions regarding market versus home production specialization. Our results indicate that both gender norms and economic incentives affect parental leave allocation. We estimate that older families pay a cost of USD 1,200 for adhering to traditional gender norms compared to younger families.</div>
       <div class="paper-links">
         <a href="https://www.iza.org/de/publications/dp/16762/the-cost-of-following-traditional-gender-norms-evidence-from-a-paid-leave-for-seriously-ill-children" target="_blank">Paper</a>
         <a href="https://drive.google.com/file/d/1Pv9MLYGaNQbegkUIWp0cFNWFH92D1A2-/view?usp=share_link" target="_blank">Slides</a>
@@ -145,8 +205,6 @@
     <div class="paper">
       <div class="paper-title"><a href="https://drive.google.com/file/d/1siBlqo11VtlQ62Xnh8X6Zb7WbY3tUW3X/view?usp=sharing" target="_blank">Technological or Cultural Change? Women in the New Labor Market</a></div>
       <div class="paper-meta">with Montserrat Martí and Alejandro Micco</div>
-      <button class="abstract-toggle" onclick="toggleAbstract(this)">Abstract</button>
-      <div class="paper-abstract">We examine gender differences in response to technological advancements and automation. We identify a narrowing and then reversing gender gap in the probability of automation over the last four decades, which cannot be attributed to a single mechanism. This shift is explained by newer cohorts of women entering lower-risk jobs, who have more years of schooling and are better prepared to access lower-risk jobs than their predecessors. They also face fewer gender norms, which lessens their home production responsibilities and shifts their labor preferences.</div>
       <div class="paper-links">
         <a href="https://drive.google.com/file/d/1siBlqo11VtlQ62Xnh8X6Zb7WbY3tUW3X/view?usp=sharing" target="_blank">Paper</a>
       </div>
@@ -155,8 +213,6 @@
     <div class="paper">
       <div class="paper-title"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5019780" target="_blank">Scaling up the Measurement of Body Images in Advertising: Continuous Monitoring of Gaps</a></div>
       <div class="paper-meta">with Marcelo Orellana and Rodrigo Wagner</div>
-      <button class="abstract-toggle" onclick="toggleAbstract(this)">Abstract</button>
-      <div class="paper-abstract">Advertising significantly shapes societal perceptions, especially regarding body image. Using Computer Vision, this paper analyzes body image representations in advertisements from Chilean newspapers (2016–2021), finding a statistically significant difference in demographic characteristics between faces in ads and the general population. Men and women in ads exhibit a lower BMI, with a larger bias for women, equivalent to a 5-to-10-pound "weight penalty." This method could enable real-time monitoring across countries.</div>
       <div class="paper-links">
         <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5019780" target="_blank">SSRN</a>
       </div>
@@ -165,8 +221,6 @@
     <div class="paper">
       <div class="paper-title"><a href="https://drive.google.com/file/d/1DCc1ceGSMBfEk2Rn3qc8oU6VNcatkavA/view?usp=sharing" target="_blank">A Note on Convex Capital Adjustment Costs in a Production Economy with Recursive Preferences</a></div>
       <div class="paper-meta">Solo-authored</div>
-      <button class="abstract-toggle" onclick="toggleAbstract(this)">Abstract</button>
-      <div class="paper-abstract">I analyze the equilibrium effects of convex capital adjustment costs on quantity dynamics and asset prices in a real business cycle model when the representative agent has Epstein-Zin preferences. I show this model accounts for the main statistical features of macroeconomic aggregate quantities. Adjustment costs increase the equity risk premium, with the mean stock return and its standard deviation consistent with the data.</div>
       <div class="paper-links">
         <a href="https://drive.google.com/file/d/1DCc1ceGSMBfEk2Rn3qc8oU6VNcatkavA/view?usp=sharing" target="_blank">Paper</a>
       </div>
@@ -205,8 +259,9 @@
     <div class="paper">
       <div class="paper-title"><a href="https://drive.google.com/file/d/1_WeOcUmc9GfD6YFk_MuGEAG-SWzVMozs/view?usp=sharing" target="_blank">Estancamiento de la participación laboral femenina y la trampa de la flexibilidad</a></div>
       <div class="paper-meta">Doble Click Económico: Más que una columna (Icare-UAI), March 2025</div>
-      <button class="abstract-toggle" onclick="toggleAbstract(this)">Abstract</button>
-      <div class="paper-abstract">La brecha de participación laboral respecto a los hombres se ha reducido rápido en las últimas décadas, además de que las mujeres chilenas se educan tanto o más que ellos y han aumentado su experiencia laboral. Pese a estos avances, hay brechas significativas que aún persisten en el mercado laboral, especialmente en cuanto a su participación en cargos de liderazgo.</div>
+      <div class="paper-links">
+        <a href="https://drive.google.com/file/d/1_WeOcUmc9GfD6YFk_MuGEAG-SWzVMozs/view?usp=sharing" target="_blank">Paper</a>
+      </div>
     </div>
   </div>
 </section>
@@ -242,73 +297,43 @@
   <div class="media-list">
     <div class="media-item">
       <div class="media-date">Aug 2025</div>
-      <div class="media-title">
-        <a href="https://drive.google.com/file/d/1wDLCs5LR977ornLPlZX2NRoEIwPxfVeW/view?usp=share_link" target="_blank">Derribando mitos sobre las cuotas de género</a>
-        <span class="media-pub">Diario El Mercurio</span>
-      </div>
+      <div class="media-title"><a href="https://drive.google.com/file/d/1wDLCs5LR977ornLPlZX2NRoEIwPxfVeW/view?usp=share_link" target="_blank">Derribando mitos sobre las cuotas de género</a><span class="media-pub">Diario El Mercurio</span></div>
     </div>
     <div class="media-item">
       <div class="media-date">Apr 2024</div>
-      <div class="media-title">
-        <a href="https://drive.google.com/file/d/12hlStME1tQU3BSntiWYUGKtuiZD2G0g4/view?usp=share_link" target="_blank">¿Avances o estancamiento?</a>
-        <span class="media-pub">Diario La Segunda</span>
-      </div>
+      <div class="media-title"><a href="https://drive.google.com/file/d/12hlStME1tQU3BSntiWYUGKtuiZD2G0g4/view?usp=share_link" target="_blank">¿Avances o estancamiento?</a><span class="media-pub">Diario La Segunda</span></div>
     </div>
     <div class="media-item">
       <div class="media-date">Sep 2023</div>
-      <div class="media-title">
-        <a href="https://drive.google.com/file/d/1g9OF6sRhRjao7ehCGXnd-KEjAXLTvJID/view?usp=sharing" target="_blank">Ley Sanna: un cambio apresurado</a>
-        <span class="media-pub">Diario La Segunda</span>
-      </div>
+      <div class="media-title"><a href="https://drive.google.com/file/d/1g9OF6sRhRjao7ehCGXnd-KEjAXLTvJID/view?usp=sharing" target="_blank">Ley Sanna: un cambio apresurado</a><span class="media-pub">Diario La Segunda</span></div>
     </div>
     <div class="media-item">
       <div class="media-date">Aug 2023</div>
-      <div class="media-title">
-        <a href="https://drive.google.com/file/d/1LwKcM7o9nWoVpvH2rNyRT6s0t_ynhQNP/view?usp=sharing" target="_blank">Teletrabajo: ¿una modalidad de trabajo o de cuidado?</a>
-        <span class="media-pub">Diario El Pulso</span>
-      </div>
+      <div class="media-title"><a href="https://drive.google.com/file/d/1LwKcM7o9nWoVpvH2rNyRT6s0t_ynhQNP/view?usp=sharing" target="_blank">Teletrabajo: ¿una modalidad de trabajo o de cuidado?</a><span class="media-pub">Diario El Pulso</span></div>
     </div>
     <div class="media-item">
       <div class="media-date">Jul 2023</div>
-      <div class="media-title">
-        <a href="https://drive.google.com/file/d/13cBylDbcCGjpn_lwfjpHYnf9K44w_Vjx/view?usp=share_link" target="_blank">Bono y brechas: ¿Cómo alcanzar la meta?</a>
-        <span class="media-pub">Diario El Pulso</span>
-      </div>
+      <div class="media-title"><a href="https://drive.google.com/file/d/13cBylDbcCGjpn_lwfjpHYnf9K44w_Vjx/view?usp=share_link" target="_blank">Bono y brechas: ¿Cómo alcanzar la meta?</a><span class="media-pub">Diario El Pulso</span></div>
     </div>
     <div class="media-item">
       <div class="media-date">Aug 2019</div>
-      <div class="media-title">
-        <a href="https://drive.google.com/file/d/1nKsQ-L4if1oo5-HYCIGqDiYXu4UrYFvF/view?usp=sharing" target="_blank">Cuando una hora es más que una hora</a>
-        <span class="media-pub">Diario La Tercera</span>
-      </div>
+      <div class="media-title"><a href="https://drive.google.com/file/d/1nKsQ-L4if1oo5-HYCIGqDiYXu4UrYFvF/view?usp=sharing" target="_blank">Cuando una hora es más que una hora</a><span class="media-pub">Diario La Tercera</span></div>
     </div>
     <div class="media-item">
       <div class="media-date">Jul 2019</div>
-      <div class="media-title">
-        <a href="http://econ.uchile.cl/es/noticia/columna-de-opinion-cuarta-revolucion-industrial-mas-que-una-amenaza-un-desafio" target="_blank">Cuarta revolución industrial: más que una amenaza un desafío</a>
-        <span class="media-pub">Diario El Mercurio</span>
-      </div>
+      <div class="media-title"><a href="http://econ.uchile.cl/es/noticia/columna-de-opinion-cuarta-revolucion-industrial-mas-que-una-amenaza-un-desafio" target="_blank">Cuarta revolución industrial: más que una amenaza un desafío</a><span class="media-pub">Diario El Mercurio</span></div>
     </div>
     <div class="media-item">
       <div class="media-date">Nov 2018</div>
-      <div class="media-title">
-        <a href="https://drive.google.com/file/d/1xV1mPLwKfkpsG1qr1TRmatSis9hX792C/view?usp=sharing" target="_blank">El desafío de la reinserción social</a>
-        <span class="media-pub">Diario La Segunda</span>
-      </div>
+      <div class="media-title"><a href="https://drive.google.com/file/d/1xV1mPLwKfkpsG1qr1TRmatSis9hX792C/view?usp=sharing" target="_blank">El desafío de la reinserción social</a><span class="media-pub">Diario La Segunda</span></div>
     </div>
     <div class="media-item">
       <div class="media-date">Jul 2018</div>
-      <div class="media-title">
-        <a href="https://drive.google.com/file/d/14F9qSiz0gKgCjxKcs4tENYdlC4ZWz8N0/view?usp=sharing" target="_blank">La revolución empieza por casa</a>
-        <span class="media-pub">Diario La Segunda</span>
-      </div>
+      <div class="media-title"><a href="https://drive.google.com/file/d/14F9qSiz0gKgCjxKcs4tENYdlC4ZWz8N0/view?usp=sharing" target="_blank">La revolución empieza por casa</a><span class="media-pub">Diario La Segunda</span></div>
     </div>
     <div class="media-item">
       <div class="media-date">Mar 2018</div>
-      <div class="media-title">
-        <a href="https://drive.google.com/file/d/16CERrZNqW_ZH8A1WuwPiDwfeh-QCjKSEHbigb54RoCk0j5A/view?usp=sharing" target="_blank">Avances y desafíos en la inclusión laboral</a>
-        <span class="media-pub">Diario El Pulso</span>
-      </div>
+      <div class="media-title"><a href="https://drive.google.com/file/d/16CERrZNqW_ZH8A1WuwPiDwfeh-QCjKSEHbigb54RoCk0j5A/view?usp=sharing" target="_blank">Avances y desafíos en la inclusión laboral</a><span class="media-pub">Diario El Pulso</span></div>
     </div>
   </div>
 </section>
@@ -319,7 +344,7 @@
 
 <script>
   function toggleAbstract(btn) {
-    var abstract = btn.nextElementSibling;
+    var abstract = btn.closest('.paper').querySelector('.paper-abstract');
     var isOpen = abstract.classList.contains('open');
     abstract.classList.toggle('open');
     btn.textContent = isOpen ? 'Abstract' : 'Hide abstract';
