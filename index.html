@@ -12,13 +12,13 @@
   html { scroll-behavior: smooth; }
   body { background: var(--bg); color: var(--ink); font-family: 'DM Sans', sans-serif; font-size: 17px; line-height: 1.7; }
 
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 32px; height: 56px; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--rule); }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 56px; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--rule); }
   nav .name { font-family: 'EB Garamond', serif; font-size: 18px; color: var(--ink); text-decoration: none; }
   nav ul { list-style: none; display: flex; gap: 32px; }
   nav ul a { font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
   nav ul a:hover { color: var(--accent); }
 
-  #home { padding-top: 120px; padding-bottom: 40px; max-width: 1100px; margin: 0 auto; padding-left: 32px; padding-right: 32px; display: grid; grid-template-columns: 200px 1fr; gap: 56px; align-items: start; }
+  #home { padding-top: 120px; padding-bottom: 40px; max-width: 860px; margin: 0 auto; padding-left: 48px; padding-right: 48px; display: grid; grid-template-columns: 200px 1fr; gap: 56px; align-items: start; }
   .photo-col { display: flex; flex-direction: column; align-items: center; gap: 16px; }
   .photo-col img { width: 200px; height: 240px; object-fit: cover; object-position: top; filter: grayscale(15%); border: 1px solid var(--rule); display: block; }
   .social-links { display: flex; gap: 14px; align-items: center; justify-content: center; }
@@ -34,10 +34,10 @@
   .cv-link { display: inline-block; margin-top: 20px; padding: 8px 20px; border: 1px solid var(--accent); color: var(--accent); font-size: 12.5px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: background 0.2s, color 0.2s; }
   .cv-link:hover { background: var(--accent); color: white; }
 
-  .about-wrapper { max-width: 1100px; margin: 0 auto; padding: 0 32px 64px; }
+  .about-wrapper { max-width: 860px; margin: 0 auto; padding: 0 48px 64px; }
   .about-blurb { font-family: 'EB Garamond', serif; font-size: 18px; line-height: 1.75; color: #333; border-left: 2px solid var(--accent); padding-left: 20px; }
 
-  section { max-width: 1100px; margin: 0 auto; padding: 64px 32px; border-top: 1px solid var(--rule); }
+  section { max-width: 860px; margin: 0 auto; padding: 64px 48px; border-top: 1px solid var(--rule); }
   section h2 { font-family: 'EB Garamond', serif; font-size: 22px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); margin-bottom: 40px; }
   .research-group { margin-bottom: 48px; }
   .research-group h3 { font-size: 15px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); border-bottom: 1px solid var(--rule); padding-bottom: 8px; margin-bottom: 28px; }
@@ -110,7 +110,7 @@
     <div class="title">Assistant Professor · Business School, Universidad Adolfo Ibañez</div>
     <div class="contact">
       Diagonal Las Torres 2640, Peñalolén, Santiago, Chile<br>
-      <a href="/cdn-cgi/l/email-protection#a5c8c3d7c4cbc6ccd6c6c48bd5c0d7c0dfe5d0c4cc8bc6c9"><span class="__cf_email__" data-cfemail="97faf1e5f6f9f4fee4f4f6b9e7f2e5f2edd7e2f6feb9f4fb">[email&#160;protected]</span></a>
+      <a href="mailto:mfrancisca.perez@uai.cl">mfrancisca.perez@uai.cl</a>
     </div>
     <a href="https://drive.google.com/file/d/1a5U8J92BGoEzKfPeabXoLf1Qn-KCoYdW/view?usp=share_link" class="cv-link" target="_blank">Curriculum Vitae</a>
   </div>
@@ -261,5 +261,14 @@
   &copy; Francisca Pérez &nbsp;&middot;&nbsp; 
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  function
+<script>
+  function toggleAbstract(btn) {
+    var abstract = btn.nextElementSibling;
+    var isOpen = abstract.classList.contains('open');
+    abstract.classList.toggle('open');
+    btn.textContent = isOpen ? 'Abstract' : 'Hide abstract';
+  }
+</script>
+
+</body>
+</html>
