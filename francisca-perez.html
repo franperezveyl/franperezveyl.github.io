@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Francisca Pérez | Economist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #0a0a0a;
+            --white: #fefefe;
+            --coral: #ff6b5b;
+            --blue: #2d3dff;
+            --yellow: #f7e733;
+            --lavender: #c4b5fd;
+            --mint: #6ee7b7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: var(--white);
+            color: var(--black);
+            overflow-x: hidden;
+            cursor: crosshair;
+        }
+
+        /* Noise texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            /*mix-blend-mode: difference; */
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            letter-spacing: 0.2em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            position: relative;
+        }
+
+        .hero-left {
+            background: var(--black);
+            padding: 8rem 4rem 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-left::before {
+            content: 'ECON';
+            position: absolute;
+            font-size: 25vw;
+            font-weight: 700;
+            color: rgba(255,255,255,0.03);
+            top: 50%;
+            left: -5%;
+            transform: translateY(-50%) rotate(-90deg);
+            letter-spacing: -0.05em;
+        }
+
+        .hero-right {
+            background: var(--coral);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-right::before {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 60%;
+            border: 3px solid var(--black);
+            transform: rotate(12deg);
+        }
+
+        .hero-right::after {
+            content: '';
+            position: absolute;
+            width: 40%;
+            height: 40%;
+            background: var(--yellow);
+            bottom: 15%;
+            right: 10%;
+            z-index: 1;
+        }
+
+        .name-container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .first-name {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 400;
+            color: var(--white);
+            line-height: 1;
+            font-style: italic;
+        }
+
+        .last-name {
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            font-weight: 700;
+            color: var(--coral);
+            line-height: 0.9;
+            letter-spacing: -0.03em;
+            margin-left: -0.5rem;
+        }
+
+        .title-block {
+            margin-top: 3rem;
+            padding: 1.5rem;
+            background: var(--blue);
+            display: inline-block;
+            transform: rotate(-2deg);
+        }
+
+        .title-block span {
+            color: var(--white);
+            font-size: 0.9rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .institution {
+            margin-top: 2rem;
+            color: rgba(255,255,255,0.6);
+            font-size: 1rem;
+            max-width: 300px;
+            line-height: 1.6;
+        }
+
+        .geometric-circle {
+            width: clamp(200px, 30vw, 350px);
+            height: clamp(200px, 30vw, 350px);
+            border-radius: 50%;
+            background: var(--black);
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            color: var(--white);
+            font-style: italic;
+            text-align: center;
+            padding: 2rem;
+            line-height: 1.4;
+        }
+
+        /* About Section */
+        .about {
+            padding: 10rem 4rem;
+            background: var(--white);
+            position: relative;
+        }
+
+        .about::before {
+            content: '01';
+            position: absolute;
+            top: 4rem;
+            left: 4rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            color: var(--black);
+        }
+
+        .section-title {
+            font-size: clamp(3rem, 10vw, 8rem);
+            font-weight: 700;
+            letter-spacing: -0.05em;
+            margin-bottom: 4rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0.2em;
+            left: 0;
+            width: 100%;
+            height: 0.3em;
+            background: var(--yellow);
+            z-index: -1;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            max-width: 1400px;
+        }
+
+        .about-text {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: var(--black);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .interests-box {
+            background: var(--black);
+            padding: 3rem;
+            position: relative;
+            transform: rotate(1deg);
+        }
+
+        .interests-box::before {
+            content: '';
+            position: absolute;
+            top: -1rem;
+            right: -1rem;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--coral);
+            z-index: -1;
+        }
+
+        .interests-box h3 {
+            color: var(--coral);
+            font-size: 0.85rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+
+        .interests-list {
+            list-style: none;
+        }
+
+        .interests-list li {
+            color: var(--white);
+            font-size: 1.5rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .interests-list li::before {
+            content: '→';
+            color: var(--coral);
+        }
+
+        /* Research Section */
+        .research {
+            background: var(--lavender);
+            padding: 10rem 4rem;
+            position: relative;
+        }
+
+        .research::before {
+            content: '02';
+            position: absolute;
+            top: 4rem;
+            left: 4rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            color: var(--black);
+        }
+
+        .research .section-title::after {
+            background: var(--black);
+        }
+
+        .policy {
+            background: var(--mint);
+            padding: 10rem 4rem; /* Esto le da aire a la franja verde */
+            position: relative;
+        }
+
+        .policy::before {
+            content: '03';
+            position: absolute;
+            top: 4rem;
+            left: 4rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            color: var(--black);
+        }
+
+        .policy .section-title::after {
+            background: var(--white);
+        }
+        
+        /* Esto hace que las tarjetas dentro de Policy sean clickeables y estéticas */
+        .policy .paper-card {
+            text-decoration: none;
+            display: block;
+        }
+
+        .policy .papers-grid {
+            display: grid;
+            /* Al dejarlo en 1fr, las cajas se expanden solas equitativamente */
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+            gap: 2rem;
+        }
+
+        .policy .paper-card {
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            height: 100%; /* Para que mantenga la proporción */
+        }
+
+        /* Esto hace que la etiqueta solo ocupe el ancho de su texto */
+        .policy .paper-status {
+            width: fit-content;
+            display: inline-block;
+        }
+
+        .policy .paper-status.policy-tag {
+            background: var(--coral);
+            color: var(--white) !important; /* Texto blanco forzado */
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 0.4rem 1rem;
+            font-weight: 700;
+            width: fit-content;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        .papers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .paper-card {
+            background: var(--white);
+            padding: 2.5rem;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .paper-card:nth-child(odd) {
+            transform: rotate(-1deg);
+        }
+
+        .paper-card:nth-child(even) {
+            transform: rotate(1deg);
+        }
+
+        .paper-card:hover {
+            transform: rotate(0deg) scale(1.02);
+            box-shadow: 20px 20px 0 var(--black);
+        }
+
+        .paper-status {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .paper-status.working {
+            background: var(--yellow);
+            color: var(--black);
+        }
+
+        .paper-status.published {
+            background: var(--mint);
+            color: var(--black);
+        }
+
+        .paper-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+
+        .paper-authors {
+            font-size: 0.9rem;
+            color: rgba(0,0,0,0.6);
+            margin-bottom: 1rem;
+        }
+
+        .paper-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: rgba(0,0,0,0.8);
+        }
+
+        .paper-journal {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            font-style: italic;
+            color: var(--blue);
+        }
+
+        /* Media Section */
+        .media {
+            background: var(--white);
+            padding: 10rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .media::before {
+            content: '04';
+            position: absolute;
+            top: 4rem;
+            left: 4rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            color: var(--black);
+        }
+
+        .media::after {
+            content: 'COLUMNAS';
+            position: absolute;
+            bottom: 10%;
+            right: -10%;
+            font-size: 12vw;
+            font-weight: 700;
+            color: rgba(0,0,0,0.03);
+            white-space: nowrap;
+            transform: rotate(-5deg);
+        }
+
+        .media .section-title::after {
+            background: var(--coral);
+        }
+
+        .media-timeline {
+            position: relative;
+            max-width: 1000px;
+            margin-top: 4rem;
+        }
+
+        .media-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--coral), var(--blue), var(--yellow));
+        }
+
+        .media-item {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 2.5rem;
+            transition: all 0.4s ease;
+        }
+
+        .media-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0.5rem;
+            width: 20px;
+            height: 20px;
+            background: var(--white);
+            border: 4px solid var(--coral);
+            transform: rotate(45deg);
+            transition: all 0.3s ease;
+        }
+
+        .media-item:hover::before {
+            background: var(--coral);
+            transform: rotate(45deg) scale(1.2);
+        }
+
+        .media-item:hover {
+            padding-left: 4rem;
+        }
+
+        .media-date {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: var(--black);
+            color: var(--white);
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .media-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
+            color: var(--black);
+        }
+
+        .media-title a {
+            color: inherit;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .media-title a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--coral);
+            transition: width 0.3s ease;
+        }
+
+        .media-title a:hover::after {
+            width: 100%;
+        }
+
+        .media-source {
+            font-size: 0.9rem;
+            color: rgba(0,0,0,0.5);
+            font-style: italic;
+        }
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .media-featured {
+            background: var(--black);
+            padding: 3rem;
+            transform: rotate(-1deg);
+            position: relative;
+        }
+
+        .media-featured::before {
+            content: 'DESTACADO';
+            position: absolute;
+            top: -0.8rem;
+            left: 2rem;
+            background: var(--yellow);
+            color: var(--black);
+            padding: 0.3rem 1rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+        }
+
+        .media-featured p {
+            color: var(--white);
+            font-size: 1rem; /* Un poco más pequeña */
+            line-height: 1.7;   /* Más espacio entre líneas para que no agobie */
+            column-count: 1;    /* Podrías probar con '2' si quieres estilo periódico */
+            column-gap: 2rem;
+            opacity: 0.8;
+            text-align: justify; /* Da un look más profesional y limpio */
+        }
+
+        .media-featured .media-title a {
+            color: var(--white);
+        }
+
+        .media-featured .media-title a::after {
+            background: var(--yellow);
+        }
+
+        .media-featured .media-source {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .media-featured .media-date {
+            background: var(--coral);
+        }
+
+        /* --- PEGA ESTO AQUÍ --- */
+        .media-featured p {
+            color: var(--white);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-top: 1rem;
+            opacity: 0.9;
+        }
+        /* ---------------------- */
+
+        @media (max-width: 968px) {
+            .media-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .media {
+                padding: 6rem 2rem;
+            }
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--black);
+            padding: 10rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '05';
+            position: absolute;
+            top: 4rem;
+            left: 4rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            color: var(--white);
+        }
+
+        .contact::after {
+            content: 'GET IN TOUCH';
+            position: absolute;
+            bottom: -5%;
+            right: -5%;
+            font-size: 15vw;
+            font-weight: 700;
+            color: rgba(255,255,255,0.03);
+            white-space: nowrap;
+        }
+
+        .contact .section-title {
+            color: var(--white);
+        }
+
+        .contact .section-title::after {
+            background: var(--coral);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+
+        .contact-info {
+            color: var(--white);
+        }
+
+        .contact-item {
+            margin-bottom: 2.5rem;
+        }
+
+        .contact-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--coral);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-value {
+            font-size: 1.25rem;
+            line-height: 1.6;
+        }
+
+        .contact-value a {
+            color: var(--white);
+            text-decoration: none;
+            border-bottom: 1px solid var(--coral);
+            transition: all 0.3s ease;
+        }
+
+        .contact-value a:hover {
+            color: var(--coral);
+        }
+
+        .cv-button {
+            display: inline-block;
+            padding: 1.5rem 3rem;
+            background: var(--coral);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .cv-button::before {
+            content: '';
+            position: absolute;
+            top: 0.5rem;
+            left: 0.5rem;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .cv-button:hover::before {
+            top: 0;
+            left: 0;
+        }
+
+        .decorative-box {
+            position: relative;
+        }
+
+        .decorative-box::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border: 3px solid var(--blue);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        .decorative-box::after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: var(--yellow);
+            top: 20%;
+            right: 20%;
+            opacity: 0.3;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--coral);
+            padding: 2rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer span {
+            font-size: 0.85rem;
+            color: var(--black);
+        }
+
+        /* Floating elements */
+        .float-element {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: var(--coral);
+            pointer-events: none;
+            z-index: 99;
+            transition: transform 0.1s ease;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-right {
+                min-height: 50vh;
+            }
+
+            .about-content,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .papers-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .hero-left,
+            .about,
+            .research,
+            .contact {
+                padding: 6rem 2rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .geometric-circle {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Selection */
+        ::selection {
+            background: var(--coral);
+            color: var(--white);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#" class="logo">Home</a>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#research">Research</a>
+            <a href="#media">Media</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-left">
+            <div class="name-container">
+                <h1 class="first-name">Francisca</h1>
+                <h1 class="last-name">Pérez</h1>
+            </div>
+            <div class="title-block">
+                <span>Assistant Professor of Economics</span>
+            </div>
+            <p class="institution">
+                <a href="https://www.uai.cl/negocios" target="_blank">Business School</a><br>
+                <a href="https://www.uai.cl" target="_blank">Universidad Adolfo Ibáñez</a><br>
+    Santiago, Chile
+            </p>
+        </div>
+        <div class="hero-right">
+            <div class="geometric-circle">
+                "From individual constraints to aggregate labor outcomes"
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <h2 class="section-title">About</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>
+                    I work at the intersection of macroeconomics and labor economics, with a focus on how frictions, regulation, and bargaining shape firm behavior and worker outcomes.
+                </p>
+                <p>
+                    A central theme in my work is understanding gendered constraints in time allocation and labor markets, and how technological change interacts with those constraints.
+                </p>
+            </div>
+            <div class="interests-box">
+                <h3>Research Interests</h3>
+                <ul class="interests-list">
+                    <li>Labor Economics: Institutions, regulation, bargaining</li>
+                    <li>Gender & Family: Norms, care, time use</li>
+                    <li>Macro-labor: Aggregate implications of firm and workers frictions</li>
+                    <li>Technology: Automation risk and task change</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="research" id="research">
+        <h2 class="section-title">Research</h2>
+        <div class="papers-grid">
+            <article class="paper-card">
+                <span class="paper-status published">Published</span>
+                <h3 class="paper-title">Sleep Hours Fall as Income Rises: Macro and Micro Evidence on Sleep Inequality Around the World</h3>
+                <p class="paper-authors">with Cristián Jara and Rodrigo Wagner</p>
+                <p class="paper-journal">Economics & Human Biology (forthcoming)</p>
+            </article>
+
+            <article class="paper-card">
+                <span class="paper-status published">Published</span>
+                <h3 class="paper-title">Do Firm-Level Shocks Generate Aggregate Fluctuations?: A Cross-Country Analysis</h3>
+                <p class="paper-authors">with Shuheng Lin</p>
+                <p class="paper-journal">The B.E. Journal of Macroeconomics, vol. 25, no. 1, 2025, pp. 45-79.</p>
+            </article>
+
+            <article class="paper-card">
+                <span class="paper-status published">Published</span>
+                <h3 class="paper-title">Compliance Measurement and Labor Regulation Enforcement: A Randomized Field Experiment</h3>
+                <p class="paper-authors">with Rolando Campusano and Rodrigo Wagner</p>   
+                <p class="paper-journal">Applied Economics, vol. 57, no. 49, 2025, pp. 8066–85.</p>
+            </article>
+
+           <article class="paper-card">
+                <span class="paper-status working">Working Paper</span>
+                <h3 class="paper-title">Sibling Arrival, Family Composition, and the Schooling Trajectories of Firstborns</h3>
+                <p class="paper-authors">with Valentina Paredes</p>
+                <p class="paper-description">
+                    Studies how the arrival of younger siblings affects firstborns’ educational outcomes in Chile, using administrative data and a student fixed-effects design.
+                </p>
+            </article>
+
+            <article class="paper-card">
+                <span class="paper-status working">Working Paper</span>
+                <h3 class="paper-title">Regulating Flexible Labor Contracts: Substitution and Allocative Efficiency</h3>
+                <p class="paper-authors">with Alejandro Micco</p>
+                <p class="paper-description">
+                    Examines Chile's 2006 labor reform affecting temporary agency workers, analyzing how regulatory costs influence firm flexibility and worker bargaining power.
+                </p>
+            </article>
+
+            <article class="paper-card">
+                <span class="paper-status working">Working Paper</span>
+                <h3 class="paper-title">The cost of following traditional gender norms: Evidence from a paid leave for seriously ill children</h3>
+                <p class="paper-authors">with Valentina Paredes & Francisco Pino</p>
+                <p class="paper-description">
+                    Studies how economic incentives and cultural norms shape parental labor force participation decisions through Chile's 2018 new paid leave for seriously ill children.
+                </p>
+            </article>
+
+            <article class="paper-card">
+                <span class="paper-status working">Working Paper</span>
+                <h3 class="paper-title">Technological or Cultural Change? Women in the New Labor Market</h3>
+                <p class="paper-authors">with Montserrat Martí & Alejandro Micco</p>
+                <p class="paper-description">
+                    Investigates changing gender gaps in automation risk over four decades, attributing shifts to educational improvements and evolving gender norms.
+                </p>
+            </article>
+
+            <article class="paper-card">
+                <span class="paper-status working">Working Paper</span>
+                <h3 class="paper-title">Scaling up the Measurement of Body Images in Advertising</h3>
+                <p class="paper-authors">with Marcelo Orellana & Rodrigo Wagner</p>
+                <p class="paper-description">
+                    Uses computer vision to analyze body representation in Chilean newspaper advertisements, revealing systematic disparities in depicted versus actual body types.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <section class="policy section-padding" id="policy">
+        <h2 class="section-title">Policy Papers</h2>
+        <div class="papers-grid">
+            <a href="https://drive.google.com/file/d/1_WeOcUmc9GfD6YFk_MuGEAG-SWzVMozs/view" target="_blank" class="paper-card">
+                <span class="paper-status policy-tag">Policy Paper</span>
+                <h3 class="paper-title">Estancamiento de la participación laboral femenina y la trampa de la flexibilidad</h3>
+                <p class="paper-description">
+            Analizamos el estancamiento de la participación laboral femenina en Chile y cómo la desigual distribución del cuidado actúa como una barrera estructural.</p>
+                <p class="paper-journal" style="margin-top: 1.5rem;">Doble Click Económico: Más que una columna (Icare-UAI), March 2025</p>
+            </a>
+
+            <a href="https://drive.google.com/file/d/1_WeOcUmc9GfD6YFk_MuGEAG-SWzVMozs/view" target="_blank" class="paper-card">
+                <span class="paper-status policy-tag">Policy Paper</span>
+                <h3 class="paper-title">Estancamiento de la participación laboral femenina y la trampa de la flexibilidad</h3>
+                <p class="paper-description">
+            Analizamos el estancamiento de la participación laboral femenina en Chile y cómo la desigual distribución del cuidado actúa como una barrera estructural.</p>
+                <p class="paper-journal" style="margin-top: 1.5rem;">Doble Click Económico: Más que una columna (Icare-UAI), March 2025</p>
+            </a>
+
+            <a href="https://drive.google.com/file/d/1_WeOcUmc9GfD6YFk_MuGEAG-SWzVMozs/view" target="_blank" class="paper-card">
+                <span class="paper-status policy-tag">Policy Paper</span>
+                <h3 class="paper-title">Estancamiento de la participación laboral femenina y la trampa de la flexibilidad</h3>
+                <p class="paper-description">
+            Analizamos el estancamiento de la participación laboral femenina en Chile y cómo la desigual distribución del cuidado actúa como una barrera estructural.</p>
+                <p class="paper-journal" style="margin-top: 1.5rem;">Doble Click Económico: Más que una columna (Icare-UAI), March 2025</p>
+            </a>
+        </div>
+    </section>
+
+    <section class="media" id="media">
+        <h2 class="section-title">Media</h2>
+        <div class="media-grid">
+            <div class="media-featured">
+                <span class="media-date">August 2025</span>
+                <h3 class="media-title">
+                    <a href="https://drive.google.com/file/d/1wDLCs5LR977ornLPlZX2NRoEIwPxfVeW/view?usp=share_link" target="_blank">
+                        Derribando mitos sobre las cuotas de género
+                    </a>
+                </h3>
+                <p class="media-source">Diario El Mercurio</p>
+            <p class="media-excerpt"> 
+                La aprobación de la Ley Más Mujeres en Directorios, ha hecho resugir un argumento conocido: sí a la igualdad de oportunidades, pero no a los cupos reservados. Quienes escribimos, estamos muy de acuerdo con lo primero: la igualdad de oportunidades entre hombres y mujeres es un principio democrático básico. Pero ¿existe realmente? 
+                <p>
+                Tras 90 años de historia, recién en 2024 una mujer asumió la presidencia de la CPC. Lo mismo ocurre en los directorios: solo un 22% de sus integrantes son mujeres. Simplemente esta realidad no es reflejo de una falta de talento. 
+                </p>
+                <p>
+                Lo cierto es que existen barreras estructurales que impiden el ascenso de las mujeres cuyo origen es la distribución desigual del cuidado. Las mujeres dedican en promedio dos horas diarias más que los hombres al trabajo no remunerado, incluso cuando son las principales proveedoras o tienen jornadas más extensas (ENUT, 2023).
+                </p>
+                <p>
+                Este doble rol no es inocuo. Para compatibilizar trabajo y familia, muchas mujeres optan por empleos más flexibles, con menos ingresos y oportunidades de ascenso y desarrollo profesional. También interrumpen sus carreras con más frecuencia y por más tiempo que los hombres (WEF, 2025). La flexibilidad laboral, lejos de ser solución, termina siendo una trampa.
+                </p>
+                <p>
+                El resultado es claro: la presencia de las mujeres cae rápidamente a medida que se escala en la organización. Son más de la mitad en el nivel de entrada, pero solo 26% en gerencias de primera línea y 22% en directorios (VI Reporte de Indicadores de Género en las Empresas). 
+                </p>
+                <p> 
+                El liderazgo histórico de los hombres tampoco ha respondido siempre al mérito. Se tiende a confundir confianza con competencia (Chamorro-Premuzic, 2013), sobrevalorando estilos ineficaces. Así, mujeres con credenciales sólidas son invisibilizadas, mientras hombres con menores competencias acceden a espacios de decisión, perpetuándose la falsa idea de meritocracia.
+                </p>
+                <p>
+                Las cuotas de género por ello no deben entenderse como un privilegio, sino como un mecanismo para corregir barreras, que además no sacrifican desempeño. Más mujeres en directorios impulsa a que otras escalen (Kunze & Miller, 2017), reduce brechas salariales (Dalvit et al., 2022) y mejora la gestión: fortalece la supervisión (Adams & Ferreira, 2009), enriquece la asesoría (Kim & Starks, 2016) y promueve criterios más equitativos (Egan et al., 2022). 
+                </p>
+                <p>
+                Creer en la igualdad de oportunidades es reconocer también que tenemos un gran desafío. Esperar a que el tiempo derribe las barreras solo perpetúa la inequidad y desperdicia talento valioso, con un costo directo en productividad y crecimiento económico. Sin cupos reservados, tendremos que esperar más de 123 años para lograr la igualdad de género en el mundo (WEF, 2025). ¿Es esto razonable? 
+                </p>
+            </div>
+            <div class="media-timeline">
+                <div class="media-item">
+                    <span class="media-date">April 2024</span>
+                    <h3 class="media-title">
+                        <a href="https://drive.google.com/file/d/12hlStME1tQU3BSntiWYUGKtuiZD2G0g4/view?usp=share_link" target="_blank">
+                            ¿Avances o estancamiento?
+                        </a>
+                    </h3>
+                    <p class="media-source">Diario La Segunda</p>
+                </div>
+                <div class="media-item">
+                    <span class="media-date">September 2023</span>
+                    <h3 class="media-title">
+                        <a href="https://drive.google.com/file/d/1g9OF6sRhRjao7ehCGXnd-KEjAXLTvJID/view?usp=sharing" target="_blank">
+                            Ley Sanna: un cambio apresurado
+                        </a>
+                    </h3>
+                    <p class="media-source">Diario La Segunda</p>
+                </div>
+                <div class="media-item">
+                    <span class="media-date">August 2023</span>
+                    <h3 class="media-title">
+                        <a href="https://drive.google.com/file/d/1LwKcM7o9nWoVpvH2rNyRT6s0t_ynhQNP/view?usp=sharing" target="_blank">
+                            Teletrabajo: ¿una modalidad de trabajo o de cuidado?
+                        </a>
+                    </h3>
+                    <p class="media-source">Diario El Pulso</p>
+                </div>
+                <div class="media-item">
+                    <span class="media-date">July 2023</span>
+                    <h3 class="media-title">
+                        <a href="https://drive.google.com/file/d/13cBylDbcCGjpn_lwfjpHYnf9K44w_Vjx/view?usp=share_link" target="_blank">
+                            Bono y brechas ¿Cómo alcanzar la meta?
+                        </a>
+                    </h3>
+                    <p class="media-source">Diario El Pulso</p>
+                </div>
+                <div class="media-item">
+                    <span class="media-date">August 2019</span>
+                    <h3 class="media-title">
+                        <a href="https://drive.google.com/file/d/1nKsQ-L4if1oo5-HYCIGqDiYXu4UrYFvF/view?usp=sharing" target="_blank">
+                            Cuando una hora es más que una hora
+                        </a>
+                    </h3>
+                    <p class="media-source">Diario La Tercera</p>
+                </div>
+                <div class="media-item">
+                    <span class="media-date">July 2019</span>
+                    <h3 class="media-title">
+                        <a href="http://econ.uchile.cl/es/noticia/columna-de-opinion-cuarta-revolucion-industrial-mas-que-una-amenaza-un-desafio" target="_blank">
+                            Cuarta revolución industrial: más que una amenaza un desafío
+                        </a>
+                    </h3>
+                    <p class="media-source">Diario El Mercurio</p>
+                </div>
+                <div class="media-item">
+                    <span class="media-date">November 2018</span>
+                    <h3 class="media-title">
+                        <a href="https://drive.google.com/file/d/1xV1mPLwKfkpsG1qr1TRmatSis9hX792C/view?usp=sharing" target="_blank">
+                            El desafío de la reinserción social
+                        </a>
+                    </h3>
+                    <p class="media-source">Diario La Segunda</p>
+                </div>
+                <div class="media-item">
+                    <span class="media-date">July 2018</span>
+                    <h3 class="media-title">
+                        <a href="https://drive.google.com/file/d/14F9qSiz0gKgCjxKcs4tENYdlC4ZWz8N0/view?usp=sharing" target="_blank">
+                            La revolución empieza por casa
+                        </a>
+                    </h3>
+                    <p class="media-source">Diario La Segunda</p>
+                </div>
+                <div class="media-item">
+                    <span class="media-date">March 2018</span>
+                    <h3 class="media-title">
+                        <a href="https://drive.google.com/file/d/16CERrZNqW_ZH8A1WuwPiDwfyXiD047NS/view?usp=sharing" target="_blank">
+                            Avances y desafíos en la inclusión laboral
+                        </a>
+                    </h3>
+                    <p class="media-source">Diario El Pulso</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <p class="contact-label">Email</p>
+                    <p class="contact-value">
+                        <a href="mailto:mfrancisca.perez@uai.cl">mfrancisca.perez@uai.cl</a>
+                    </p>
+                </div>
+                <div class="contact-item">
+                    <p class="contact-label">Address</p>
+                    <p class="contact-value">
+                        Diagonal Las Torres 2640<br>
+                        Peñalolén, Santiago<br>
+                        Chile
+                    </p>
+                </div>
+                <div class="contact-item">
+                    <p class="contact-label">Institution</p>
+                    <p class="contact-value">
+                        Business School<br>
+                        Universidad Adolfo Ibáñez
+                    </p>
+                </div>
+                <a href="https://drive.google.com/file/d/1a5U8J92BGoEzKfPeabXoLf1Qn-KCoYdW/view?usp=share_link" class="cv-button" target="_blank">
+                    Download CV
+                </a>
+            </div>
+            <div class="decorative-box"></div>
+        </div>
+    </section>
+
+    <footer>
+        <span>Francisca Pérez © 2025</span>
+        <span>Santiago, Chile</span>
+    </footer>
+
+    <script>
+        // Smooth reveal on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.paper-card, .about-text, .interests-box, .media-item, .media-featured').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            observer.observe(el);
+        });
+
+        // Parallax effect on geometric circle
+        document.addEventListener('mousemove', (e) => {
+            const circle = document.querySelector('.geometric-circle');
+            if (circle) {
+                const x = (window.innerWidth / 2 - e.clientX) / 30;
+                const y = (window.innerHeight / 2 - e.clientY) / 30;
+                circle.style.transform = `translate(${x}px, ${y}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
