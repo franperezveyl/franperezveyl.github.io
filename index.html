@@ -24,7 +24,7 @@
   .social-links { display: flex; gap: 14px; align-items: center; justify-content: center; }
   .social-links a { display: inline-flex; opacity: 1; transition: opacity 0.2s; }
   .social-links a:hover { opacity: 0.65; }
-  .social-links img { width: 28px; height: 28px; }
+  .social-links img { width: 28px; height: 28px; max-width: 28px; max-height: 28px; display: block; }
 
   .hero-text h1 { font-family: 'EB Garamond', serif; font-size: 42px; font-weight: 400; line-height: 1.1; margin-bottom: 6px; color: var(--ink); }
   .hero-text .title { font-family: 'EB Garamond', serif; font-size: 13px; font-weight: 500; letter-spacing: 0.03em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
@@ -73,8 +73,12 @@
 
   @media (max-width: 640px) {
     nav { padding: 0 20px; } nav ul { gap: 16px; }
-    #home { grid-template-columns: 1fr; padding: 100px 24px 40px; gap: 32px; }
-    .photo-col img { width: 140px; height: 170px; }
+    #home { grid-template-columns: 1fr; padding: 100px 24px 40px; gap: 24px; }
+    .photo-col { flex-direction: row; align-items: center; justify-content: center; gap: 24px; }
+    .photo-col img { width: 120px; height: 145px; }
+    .social-links { flex-direction: column; gap: 12px; }
+    .social-links img { width: 28px !important; height: 28px !important; max-width: 28px !important; max-height: 28px !important; }
+    .social-links a { width: 28px; height: 28px; overflow: hidden; }
     .about-wrapper { padding: 0 24px 48px; }
     section { padding: 48px 24px; }
   }
