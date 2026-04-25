@@ -3,287 +3,389 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Francisca Pérez</title>
+<title>Francisca P&eacute;rez</title>
+<meta name="description" content="Francisca P&eacute;rez is an economist working on labor economics and macroeconomics.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Lato:ital,wght@0,300;0,400;0,700;1,400;1,700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
-  :root { --ink: #1a1a1a; --muted: #6b6b6b; --accent: #1e5e3a; --bg: #ffffff; --rule: #ddd8cf; --card: #f3f1ec; }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body { background: var(--bg); color: var(--ink); font-family: 'DM Sans', sans-serif; font-size: 17px; line-height: 1.7; }
+  :root {
+    --text: #202124;
+    --muted: #5f6368;
+    --link: #5a7764;
+    --line: #dadce0;
+    --bg: #ffffff;
+    --heading: #2b2b2b;
+    --font-body: "Lato", sans-serif;
+    --font-ui: "Roboto", sans-serif;
+    --font-brand: "Google Sans", "Roboto", sans-serif;
+  }
 
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 56px; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--rule); }
-  nav .name { font-family: 'EB Garamond', serif; font-size: 18px; color: var(--ink); text-decoration: none; }
-  nav ul { list-style: none; display: flex; gap: 32px; }
-  nav ul a { font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
-  nav ul a:hover { color: var(--accent); }
+  * {
+    box-sizing: border-box;
+  }
 
-  #home { padding-top: 120px; padding-bottom: 40px; max-width: 860px; margin: 0 auto; padding-left: 48px; padding-right: 48px; display: grid; grid-template-columns: 200px 1fr; gap: 56px; align-items: start; }
-  .photo-col { display: flex; flex-direction: column; align-items: center; gap: 16px; }
-  .photo-col img { width: 200px; height: 240px; object-fit: cover; object-position: center; filter: grayscale(15%); border: 1px solid var(--rule); display: block; }
-  .social-links { display: flex; gap: 14px; align-items: center; justify-content: center; }
-  .social-links a { display: inline-flex; opacity: 1; transition: opacity 0.2s; border: none; outline: none; box-shadow: none; background: none; }
-  .social-links a:hover { opacity: 0.65; }
-  .social-links img { width: 18px; height: 18px; max-width: 22px; max-height: 22px; display: block; border: none !important; outline: none !important; box-shadow: none !important; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.65;
+  }
 
-  .hero-text h1 { font-family: 'EB Garamond', serif; font-size: 42px; font-weight: 400; line-height: 1.1; margin-bottom: 6px; color: var(--ink); }
-  .hero-text .title { font-family: 'EB Garamond', serif; font-size: 13px; font-weight: 500; letter-spacing: 0.03em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
-  .hero-text .contact { font-family: 'EB Garamond', serif; font-size: 17px; color: var(--muted); line-height: 2; }
-  .hero-text .contact a { color: var(--accent); text-decoration: none; }
-  .hero-text .contact a:hover { text-decoration: underline; }
-  .cv-link { display: inline-block; margin-top: 20px; padding: 8px 20px; border: 1px solid var(--accent); color: var(--accent); font-size: 12.5px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: background 0.2s, color 0.2s; }
-  .cv-link:hover { background: var(--accent); color: white; }
+  a {
+    color: var(--link);
+    text-decoration: underline;
+    text-underline-offset: 0.08em;
+  }
 
-  .about-wrapper { max-width: 860px; margin: 0 auto; padding: 0 48px 64px; }
-  .about-blurb { font-family: 'EB Garamond', serif; font-size: 18px; line-height: 1.75; color: #333; border-left: 2px solid var(--accent); padding-left: 20px; }
+  .page {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 20px 56px;
+  }
 
-  section { max-width: 860px; margin: 0 auto; padding: 64px 48px; border-top: 1px solid var(--rule); }
-  section h2 { font-family: 'EB Garamond', serif; font-size: 22px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); margin-bottom: 40px; }
-  .research-group { margin-bottom: 48px; }
-  .research-group h3 { font-size: 15px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); border-bottom: 1px solid var(--rule); padding-bottom: 8px; margin-bottom: 28px; }
+  .topbar {
+    padding: 18px 0 10px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 28px;
+  }
 
-  .paper { margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px dashed var(--rule); }
-  .paper:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-  .paper-title { font-family: 'EB Garamond', serif; font-size: 21px; font-weight: 500; line-height: 1.4; margin-bottom: 4px; color: var(--accent); }
-  .paper-title a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
-  .paper-title a:hover { border-bottom-color: var(--accent); }
-  .paper-meta { font-family: 'EB Garamond', serif; font-size: 17px; color: var(--muted); margin-bottom: 2px; }
-  .paper-journal { font-family: 'EB Garamond', serif; font-size: 17px; color: var(--muted); margin-bottom: 8px; }
+  .site-title {
+    margin: 0 0 10px;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1.2;
+    font-family: var(--font-brand);
+  }
 
-  .paper-abstract { font-family: 'EB Garamond', serif; font-size: 17px; color: #444; line-height: 1.7; display: none; margin-top: 10px; }
-  .paper-abstract.open { display: block; }
+  .site-nav {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    font-family: var(--font-ui);
+  }
 
-  .abstract-toggle { display: inline-block; margin-top: 8px; font-size: 12px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent); cursor: pointer; border: none; padding: 0; background: none; font-family: 'DM Sans', sans-serif; }
-  .abstract-toggle:hover { text-decoration: underline; }
+  .content {
+    max-width: 1180px;
+    margin: 0 auto;
+  }
 
-  .paper-links { margin-top: 8px; }
-  .paper-links a { font-size: 12px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent); text-decoration: none; }
-  .paper-links a:hover { text-decoration: underline; }
+  .intro {
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: 36px;
+    align-items: start;
+    margin-bottom: 52px;
+  }
 
-  .media-list { display: grid; gap: 14px; }
-  .media-item { display: flex; align-items: baseline; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--rule); }
-  .media-item:last-child { border-bottom: none; }
-  .media-date { font-size: 15px; color: var(--muted); white-space: nowrap; min-width: 90px; }
-  .media-title { font-family: 'EB Garamond', serif; font-size: 17px; line-height: 1.4; }
-  .media-title a { color: var(--ink); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s, color 0.2s; }
-  .media-title a:hover { color: var(--accent); border-bottom-color: var(--accent); }
-  .media-pub { font-size: 15px; color: var(--muted); margin-left: 8px; font-style: italic; }
+  .intro h1 {
+    margin: 0 0 14px;
+    font-size: 23px;
+    font-weight: 500;
+    font-family: var(--font-brand);
+  }
 
-  footer { text-align: center; padding: 32px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--rule); }
+  .intro p {
+    margin: 0 0 12px;
+    max-width: 760px;
+    font-size: 14px;
+  }
 
-  @media (max-width: 640px) {
-    nav { padding: 0 20px; } nav ul { gap: 16px; }
-    #home { grid-template-columns: 1fr; padding: 100px 24px 40px; gap: 24px; }
-    .photo-col { flex-direction: column; align-items: center; justify-content: center; gap: 24px; }
-    .photo-col img { width: 260px; height: 310px; }
-    .social-links { flex-direction: row; gap: 12px; }
-    .social-links img { border: none !important; box-shadow: none !important; outline: none !important; border-radius: 0 !important; }
-    .social-links a { width: 28px; height: 28px; overflow: hidden; }
-    .about-wrapper { padding: 0 24px 48px; }
-    section { padding: 48px 24px; }
+  .intro-links {
+    margin-top: 10px;
+  }
+
+  .intro-links p {
+    margin-bottom: 6px;
+  }
+
+  .portrait img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .section {
+    margin-top: 28px;
+  }
+
+  .section-title {
+    margin: 0 0 26px;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--heading);
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    font-family: var(--font-ui);
+  }
+
+  .subsection {
+    border-top: 1px solid var(--line);
+    padding-top: 48px;
+    margin-top: 48px;
+    margin-bottom: 0;
+    max-width: none;
+  }
+
+  .subsection:first-child {
+    margin-top: 0;
+  }
+
+  .subsection-title {
+    margin: 0 0 26px 160px;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: 0;
+    line-height: 1.25;
+    font-family: var(--font-body);
+  }
+
+  .item {
+    margin: 0 0 38px 160px;
+    max-width: 1040px;
+  }
+
+  .item:last-child {
+    margin-bottom: 0;
+  }
+
+  .item-title,
+  .item-meta,
+  .item-extra {
+    margin: 0 0 4px;
+  }
+
+  .item-title {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .item-extra {
+    color: var(--text);
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  .item-title a {
+    font-weight: 700;
+  }
+
+  .paper-title-emphasis {
+    font-weight: 700;
+    color: var(--link);
+    text-decoration: underline;
+    text-underline-offset: 0.08em;
+  }
+
+  .journal {
+    font-weight: 700;
+    font-style: italic;
+  }
+
+  .footer {
+    border-top: 1px solid var(--line);
+    margin-top: 54px;
+    padding-top: 14px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  @media (max-width: 760px) {
+    .page {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    .intro {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .subsection-title,
+    .item {
+      margin-left: 0;
+    }
+
+    .portrait {
+      max-width: 220px;
+    }
   }
 </style>
 </head>
 <body>
-
-<nav>
-  <a href="#home" class="name">Francisca Pérez</a>
-  <ul>
-    <li><a href="#research">Research</a></li>
-    <li><a href="#media">Media</a></li>
-  </ul>
-</nav>
-
-<div id="home">
-  <div class="photo-col">
-    <img src="FPerez_03.jpeg" alt="Francisca Pérez">
-    <div class="social-links">
-      <a href="https://scholar.google.com/citations?user=7reiZ4gAAAAJ&hl=es" target="_blank" title="Google Scholar">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg" alt="Google Scholar" width="28" height="28">
-      </a>
-      <a href="https://orcid.org/0000-0001-9197-3518" target="_blank" title="ORCID">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/ORCID_iD.svg" alt="ORCID" width="28" height="28">
-      </a>
-      <a href="https://twitter.com/mfperezv" target="_blank" title="Twitter">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg" alt="Twitter" width="28" height="28">
-      </a>
+<div class="page">
+  <header class="topbar">
+    <div class="content">
+      <div class="site-title">Francisca P&eacute;rez</div>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#research">Research</a>
+        <a href="#media">Media</a>
+      </nav>
     </div>
-  </div>
-  <div class="hero-text">
-    <h1>Francisca Pérez</h1>
-    <div class="title">Assistant Professor · Business School, Universidad Adolfo Ibañez</div>
-    <div class="contact">
-      Diagonal Las Torres 2640, Peñalolén, Santiago, Chile<br>
-      <a href="mailto:mfrancisca.perez@uai.cl">mfrancisca.perez@uai.cl</a>
-    </div>
-    <a href="https://drive.google.com/file/d/1a5U8J92BGoEzKfPeabXoLf1Qn-KCoYdW/view?usp=share_link" class="cv-link" target="_blank">Curriculum Vitae</a>
-  </div>
-</div>
+  </header>
 
-<div class="about-wrapper">
-  <div class="about-blurb">
-    I am a macroeconomist working primarily on labor economics. My research studies how households, workers, and firms adjust their behavior in response to constraints related to technology, labor market regulation, care responsibilities, and social norms. I am interested in understanding how they shape time allocation, occupational choices, and labor demand. I use rich microdata and a combination of causal inference and structural methods.
-  </div>
-</div>
+  <main class="content">
+    <section class="intro">
+      <div>
+        <h1>Francisca P&eacute;rez</h1>
+        <p>Assistant Professor at the Business School of Universidad Adolfo Ib&aacute;&ntilde;ez.</p>
+        <p>I am a macroeconomist working primarily on labor economics. My research studies how households, workers, and firms adjust their behavior in response to constraints related to technology, labor market regulation, care responsibilities, and social norms. I am interested in understanding how these forces shape time allocation, occupational choices, and labor demand. I use rich microdata and a combination of causal inference and structural methods.</p>
 
-<section id="research">
-  <h2>Research</h2>
-
-  <div class="research-group">
-    <h3>Working Papers</h3>
-
-  <!-- 
-    <div class="paper">
-      <div class="paper-title">Sibling Arrival, Family Composition, and the Schooling Trajectories of Firstborns</div>
-      <div class="paper-meta">with Valentina Paredes &mdash; Draft coming soon</div>
-      <button class="abstract-toggle" onclick="toggleAbstract(this)">Abstract</button>
-      <div class="paper-abstract">Family characteristics shape educational outcomes as younger siblings can increase caregiving demands and reduce parental resources. Using Chilean administrative data and a student fixed-effects design, we analyze how younger siblings affect firstborns' grades, attendance, and dropout rates from birth through adolescence. While the arrival of a younger sibling generally lowers grades, it simultaneously improves school attendance and reduces school dropout. Crucially, the negative impacts on achievement are concentrated in households undergoing restructuring, whereas effects are significantly attenuated or reversed for full-siblings who share both biological parents. These findings suggest that the "sibling effect" is closely tied to household stability and gendered caregiving roles, and provide a nuanced view of how family complexity shapes human capital accumulation in emerging economies.</div>
-    </div>
-  -->
-    <div class="paper">
-      <div class="paper-title">Business Plan Feedback and Venture Performance: A Randomized Field Experiment</div>
-      <div class="paper-meta">with Rodrigo Wagner &mdash; Draft coming soon</div>
-      <button class="abstract-toggle" onclick="toggleAbstract(this)">Abstract</button>
-      <div class="paper-abstract">Feedback on business plans is common in organizations that evaluate and accelerate new ventures. Yet little is known about what happens to entrepreneurial ventures that receive such feedback. It may improve ventures, or it may accelerate sorting and exit as entrepreneurs become better informed about their prospects. This paper provides causal evidence using a randomized field experiment in Start-Up Chile, a global startup accelerator. Half of 88 admitted ventures were randomly assigned to receive written feedback from independent expert judges. Feedback increased the likelihood of securing external funding by 7 percentage points and increased the amount raised. It also improved venture survival years after the program. Overall, the results suggest that feedback operates primarily through a business improvement channel rather than a pure screening mechanism.</div>
-    </div>
-
-    <div class="paper">
-      <div class="paper-title">Regulating Flexible Labor Contracts: Substitution and Allocative Efficiency</div>
-      <div class="paper-meta">with Alejandro Micco</div>
-      <button class="abstract-toggle" onclick="toggleAbstract(this)">Abstract</button>
-      <div class="paper-abstract">Regulations governing flexible labor contracts shape firms’ adjustment margins and the allocation of labor across heterogeneous producers. We study the aggregate consequences of such regulation using Chile’s 2006 reform of temporary agency work. Combining plant-level data with a dynamic industry equilibrium model featuring non-convex firing costs and imperfect substitution between regular and agency workers, we show that the reform shut down a key adjustment margin by raising both fixed and variable costs of agency labor. Aggregate productivity declines, even though average firm-level productivity remains unchanged, reflecting increased dynamic misallocation rather than within-firm efficiency losses. Output prices rise as higher labor costs and impaired reallocation contribute in roughly equal measure, with their relative importance governed by the elasticity of substitution across worker types. Our results highlight that regulating flexible employment arrangements can generate sizable productivity losses by weakening firms’ dynamic adjustment margins, effects that are not captured by static or reduced-form approaches.</div>
-    </div>
-
-    <div class="paper">
-      <div class="paper-title"><a href="https://www.iza.org/de/publications/dp/16762/the-cost-of-following-traditional-gender-norms-evidence-from-a-paid-leave-for-seriously-ill-children" target="_blank">The Cost of Following Traditional Gender Norms: Evidence from a Paid Leave for Seriously Ill Children</a></div>
-      <div class="paper-meta">with Valentina Paredes and Francisco Pino &mdash; IZA Discussion Paper No. 16762</div>
-      <div class="paper-links">
-        <a href="https://drive.google.com/file/d/1Pv9MLYGaNQbegkUIWp0cFNWFH92D1A2-/view?usp=share_link" target="_blank">Slides</a>
+        <div class="intro-links">
+          <p>Contact &nbsp; <a href="mailto:mfrancisca.perez@uai.cl">mfrancisca.perez@uai.cl</a></p>
+          <p><a href="https://drive.google.com/file/d/1a5U8J92BGoEzKfPeabXoLf1Qn-KCoYdW/view?usp=share_link" target="_blank" rel="noopener noreferrer">CV</a> &nbsp; <a href="https://scholar.google.com/citations?user=7reiZ4gAAAAJ&hl=es" target="_blank" rel="noopener noreferrer">Google Scholar</a></p>
+          <p><a href="https://orcid.org/0000-0001-9197-3518" target="_blank" rel="noopener noreferrer">ORCID</a> &nbsp; <a href="https://twitter.com/mfperezv" target="_blank" rel="noopener noreferrer">Twitter</a></p>
+        </div>
       </div>
-    </div>
 
-    <div class="paper">
-      <div class="paper-title"><a href="https://drive.google.com/file/d/1siBlqo11VtlQ62Xnh8X6Zb7WbY3tUW3X/view?usp=sharing" target="_blank">Technological or Cultural Change? Women in the New Labor Market</a></div>
-      <div class="paper-meta">with Montserrat Martí and Alejandro Micco</div>
-    </div>
+      <div class="portrait">
+        <img src="FPerez_03.jpeg" alt="Francisca P&eacute;rez">
+      </div>
+    </section>
 
-    <div class="paper">
-      <div class="paper-title"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5019780" target="_blank">Scaling up the Measurement of Body Images in Advertising: Continuous Monitoring of Gaps</a></div>
-      <div class="paper-meta">with Marcelo Orellana and Rodrigo Wagner</div>
-    </div>
+    <section class="section" id="research">
+      <div class="subsection">
+        <h3 class="subsection-title">Working Papers</h3>
 
-    <div class="paper">
-      <div class="paper-title"><a href="https://drive.google.com/file/d/1DCc1ceGSMBfEk2Rn3qc8oU6VNcatkavA/view?usp=sharing" target="_blank">A Note on Convex Capital Adjustment Costs in a Production Economy with Recursive Preferences</a></div>
-    </div>
-  </div>
+        <div class="item">
+          <p class="item-title"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4977282" target="_blank" rel="noopener noreferrer">The Effects of Expert Feedback on the Performance and Survival of Entrepreneurial Ventures</a>, with Rodrigo Wagner</p>
+        </div>
 
-  <div class="research-group">
-    <h3>Published &amp; Accepted</h3>
+        <div class="item">
+          <p class="item-title"><span class="paper-title-emphasis">Regulating Flexible Labor Contracts: Substitution and Allocative Efficiency</span>, with Alejandro Micco</p>
+        </div>
 
-    <div class="paper">
-      <div class="paper-title"><a href="https://authors.elsevier.com/a/1l7-w,Zjejz4va" target="_blank">Sleep Hours Fall as Income Rises: Macro and Micro Evidence on Sleep Inequality Around the World</a></div>
-      <div class="paper-meta">with Cristián Jara and Rodrigo Wagner</div>
-      <div class="paper-journal"><em>Economics &amp; Human Biology</em>, 2025</div>
-    </div>
+        <div class="item">
+          <p class="item-title"><a href="https://www.iza.org/de/publications/dp/16762/the-cost-of-following-traditional-gender-norms-evidence-from-a-paid-leave-for-seriously-ill-children" target="_blank" rel="noopener noreferrer">The Cost of Following Traditional Gender Norms: Evidence from a Paid Leave for Seriously Ill Children</a>, with Valentina Paredes and Francisco Pino</p>
+          <p class="item-extra">IZA Discussion Paper No. 16762. <a href="https://drive.google.com/file/d/1Pv9MLYGaNQbegkUIWp0cFNWFH92D1A2-/view?usp=share_link" target="_blank" rel="noopener noreferrer">Slides</a>.</p>
+        </div>
 
-    <div class="paper">
-      <div class="paper-title"><a href="https://drive.google.com/file/d/1soCap3ipQtJN0YO39ERRui1gFnSk8x27/view?usp=share_link" target="_blank">Do Firm-Level Shocks Generate Aggregate Fluctuations? A Cross-Country Analysis</a></div>
-      <div class="paper-meta">with Shuheng Lin</div>
-      <div class="paper-journal"><em>The B.E. Journal of Macroeconomics</em>, 2025</div>
-    </div>
+        <div class="item">
+          <p class="item-title"><a href="https://drive.google.com/file/d/1siBlqo11VtlQ62Xnh8X6Zb7WbY3tUW3X/view?usp=sharing" target="_blank" rel="noopener noreferrer">Technological or Cultural Change? Women in the New Labor Market</a>, with Montserrat Mart&iacute; and Alejandro Micco</p>
+        </div>
 
-    <div class="paper">
-      <div class="paper-title"><a href="https://www.tandfonline.com/eprint/68QC7JKWK63PGJ84VC4U/full?target=10.1080/00036846.2024.2394703" target="_blank">Compliance Measurement and Labor Regulation Enforcement: A Randomized Field Experiment</a></div>
-      <div class="paper-meta">with Rolando Campusano and Rodrigo Wagner</div>
-      <div class="paper-journal"><em>Applied Economics</em>, 2025</div>
-    </div>
-  </div>
+        <div class="item">
+          <p class="item-title"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5019780" target="_blank" rel="noopener noreferrer">Scaling up the Measurement of Body Images in Advertising: Continuous Monitoring of Gaps</a>, with Marcelo Orellana and Rodrigo Wagner</p>
+        </div>
 
-  <div class="research-group">
-    <h3>Work in Progress</h3>
-    <div class="paper">
-      <div class="paper-title">Wage or Employment Losses? A Closer Look at Earnings Losses of Job Displacement</div>
-      <div class="paper-meta">with Sebastián Freed and Alejandro Micco</div>
-    </div>
-  </div>
+        <div class="item">
+          <p class="item-title"><a href="https://drive.google.com/file/d/1DCc1ceGSMBfEk2Rn3qc8oU6VNcatkavA/view?usp=sharing" target="_blank" rel="noopener noreferrer">A Note on Convex Capital Adjustment Costs in a Production Economy with Recursive Preferences</a></p>
+        </div>
+      </div>
 
-  <div class="research-group">
-    <h3>Policy Papers &amp; Other Writing</h3>
-    <div class="paper">
-      <div class="paper-title"><a href="https://drive.google.com/file/d/1yc0ANauG1QQ7hT_m8UeFeNNoxIw0EeWG/view?usp=sharing" target="_blank">Transformación en la gran minería en Chile: Causas, efectos y desafíos de la incorporación de mujeres en la última década</a></div>
-      <div class="paper-meta">Reporte Centro de Futuros Empresariales-UAI, March 2026</div>
-    </div>
-    
-    <div class="paper">
-      <div class="paper-title"><a href="https://drive.google.com/file/d/1xHOOF4Uyz32l6n9rmRc5gCAyVcpjJt6U/view?usp=sharing" target="_blank">Diversidad como estrategia: la transformación laboral de la gran minería chilena en la última década</a></div>
-      <div class="paper-meta">Doble Click Económico: Más que una columna. Icare-UAI, March 2026</div>
-    </div>
+      <div class="subsection">
+        <h3 class="subsection-title">Publications</h3>
 
-    <div class="paper">
-      <div class="paper-title"><a href="https://drive.google.com/file/d/1_WeOcUmc9GfD6YFk_MuGEAG-SWzVMozs/view?usp=sharing" target="_blank">Estancamiento de la participación laboral femenina y la trampa de la flexibilidad</a></div>
-      <div class="paper-meta">Doble Click Económico: Más que una columna. Icare-UAI, March 2025</div>
-    </div>
-  </div>
-</section>
+        <div class="item">
+          <p class="item-title"><a href="https://authors.elsevier.com/a/1l7-w,Zjejz4va" target="_blank" rel="noopener noreferrer">Sleep Hours Fall as Income Rises: Macro and Micro Evidence on Sleep Inequality Around the World</a>, with Cristi&aacute;n Jara and Rodrigo Wagner</p>
+          <p class="item-extra"><span class="journal">Economics &amp; Human Biology</span>. 2025.</p>
+        </div>
 
-<section id="media">
-  <h2>Media</h2>
-  <div class="media-list">
-    <div class="media-item">
-      <div class="media-date">Aug 2025</div>
-      <div class="media-title"><a href="https://drive.google.com/file/d/1wDLCs5LR977ornLPlZX2NRoEIwPxfVeW/view?usp=share_link" target="_blank">Derribando mitos sobre las cuotas de género</a><span class="media-pub">Diario El Mercurio</span></div>
-    </div>
-    <div class="media-item">
-      <div class="media-date">Apr 2024</div>
-      <div class="media-title"><a href="https://drive.google.com/file/d/12hlStME1tQU3BSntiWYUGKtuiZD2G0g4/view?usp=share_link" target="_blank">¿Avances o estancamiento?</a><span class="media-pub">Diario La Segunda</span></div>
-    </div>
-    <div class="media-item">
-      <div class="media-date">Sep 2023</div>
-      <div class="media-title"><a href="https://drive.google.com/file/d/1g9OF6sRhRjao7ehCGXnd-KEjAXLTvJID/view?usp=sharing" target="_blank">Ley Sanna: un cambio apresurado</a><span class="media-pub">Diario La Segunda</span></div>
-    </div>
-    <div class="media-item">
-      <div class="media-date">Aug 2023</div>
-      <div class="media-title"><a href="https://drive.google.com/file/d/1LwKcM7o9nWoVpvH2rNyRT6s0t_ynhQNP/view?usp=sharing" target="_blank">Teletrabajo: ¿una modalidad de trabajo o de cuidado?</a><span class="media-pub">Diario El Pulso</span></div>
-    </div>
-    <div class="media-item">
-      <div class="media-date">Jul 2023</div>
-      <div class="media-title"><a href="https://drive.google.com/file/d/13cBylDbcCGjpn_lwfjpHYnf9K44w_Vjx/view?usp=share_link" target="_blank">Bono y brechas: ¿Cómo alcanzar la meta?</a><span class="media-pub">Diario El Pulso</span></div>
-    </div>
-    <div class="media-item">
-      <div class="media-date">Aug 2019</div>
-      <div class="media-title"><a href="https://drive.google.com/file/d/1nKsQ-L4if1oo5-HYCIGqDiYXu4UrYFvF/view?usp=sharing" target="_blank">Cuando una hora es más que una hora</a><span class="media-pub">Diario La Tercera</span></div>
-    </div>
-    <div class="media-item">
-      <div class="media-date">Jul 2019</div>
-      <div class="media-title"><a href="http://econ.uchile.cl/es/noticia/columna-de-opinion-cuarta-revolucion-industrial-mas-que-una-amenaza-un-desafio" target="_blank">Cuarta revolución industrial: más que una amenaza un desafío</a><span class="media-pub">Diario El Mercurio</span></div>
-    </div>
-    <div class="media-item">
-      <div class="media-date">Nov 2018</div>
-      <div class="media-title"><a href="https://drive.google.com/file/d/1xV1mPLwKfkpsG1qr1TRmatSis9hX792C/view?usp=sharing" target="_blank">El desafío de la reinserción social</a><span class="media-pub">Diario La Segunda</span></div>
-    </div>
-    <div class="media-item">
-      <div class="media-date">Jul 2018</div>
-      <div class="media-title"><a href="https://drive.google.com/file/d/14F9qSiz0gKgCjxKcs4tENYdlC4ZWz8N0/view?usp=sharing" target="_blank">La revolución empieza por casa</a><span class="media-pub">Diario La Segunda</span></div>
-    </div>
-    <div class="media-item">
-      <div class="media-date">Mar 2018</div>
-      <div class="media-title"><a href="https://drive.google.com/file/d/16CERrZNqW_ZH8A1WuwPiDwfeh-QCjKSEHbigb54RoCk0j5A/view?usp=sharing" target="_blank">Avances y desafíos en la inclusión laboral</a><span class="media-pub">Diario El Pulso</span></div>
-    </div>
-  </div>
-</section>
+        <div class="item">
+          <p class="item-title"><a href="https://drive.google.com/file/d/1soCap3ipQtJN0YO39ERRui1gFnSk8x27/view?usp=share_link" target="_blank" rel="noopener noreferrer">Do Firm-Level Shocks Generate Aggregate Fluctuations? A Cross-Country Analysis</a>, with Shuheng Lin</p>
+          <p class="item-extra"><span class="journal">The B.E. Journal of Macroeconomics</span>. 2025.</p>
+        </div>
 
-<footer>
-  &copy; Francisca Pérez &nbsp;&middot;&nbsp; 
-</footer>
+        <div class="item">
+          <p class="item-title"><a href="https://www.tandfonline.com/eprint/68QC7JKWK63PGJ84VC4U/full?target=10.1080/00036846.2024.2394703" target="_blank" rel="noopener noreferrer">Compliance Measurement and Labor Regulation Enforcement: A Randomized Field Experiment</a>, with Rolando Campusano and Rodrigo Wagner</p>
+          <p class="item-extra"><span class="journal">Applied Economics</span>. 2025.</p>
+        </div>
+      </div>
 
-<script>
-  function toggleAbstract(btn) {
-    var abstract = btn.nextElementSibling;
-    var isOpen = abstract.classList.contains('open');
-    abstract.classList.toggle('open');
-    btn.textContent = isOpen ? 'Abstract' : 'Hide abstract';
-  }
-</script>
+      <div class="subsection">
+        <h3 class="subsection-title">Work in Progress</h3>
+
+        <div class="item">
+          <p class="item-title">Wage or Employment Losses? A Closer Look at Earnings Losses of Job Displacement, with Sebasti&aacute;n Freed and Alejandro Micco</p>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3 class="subsection-title">Policy Papers and Other Writing</h3>
+
+        <div class="item">
+          <p class="item-title"><a href="https://drive.google.com/file/d/1yc0ANauG1QQ7hT_m8UeFeNNoxIw0EeWG/view?usp=sharing" target="_blank" rel="noopener noreferrer">Transformaci&oacute;n en la gran miner&iacute;a en Chile: Causas, efectos y desaf&iacute;os de la incorporaci&oacute;n de mujeres en la &uacute;ltima d&eacute;cada</a></p>
+          <p class="item-extra">Reporte Centro de Futuros Empresariales-UAI, March 2026.</p>
+        </div>
+
+        <div class="item">
+          <p class="item-title"><a href="https://drive.google.com/file/d/1xHOOF4Uyz32l6n9rmRc5gCAyVcpjJt6U/view?usp=sharing" target="_blank" rel="noopener noreferrer">Diversidad como estrategia: la transformaci&oacute;n laboral de la gran miner&iacute;a chilena en la &uacute;ltima d&eacute;cada</a></p>
+          <p class="item-extra">Doble Click Econ&oacute;mico: M&aacute;s que una columna. Icare-UAI, March 2026.</p>
+        </div>
+
+        <div class="item">
+          <p class="item-title"><a href="https://drive.google.com/file/d/1_WeOcUmc9GfD6YFk_MuGEAG-SWzVMozs/view?usp=sharing" target="_blank" rel="noopener noreferrer">Estancamiento de la participaci&oacute;n laboral femenina y la trampa de la flexibilidad</a></p>
+          <p class="item-extra">Doble Click Econ&oacute;mico: M&aacute;s que una columna. Icare-UAI, March 2025.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="media">
+      <div class="subsection">
+        <h3 class="subsection-title">Media</h3>
+        <div class="item">
+          <p class="item-title"><a href="https://drive.google.com/file/d/1wDLCs5LR977ornLPlZX2NRoEIwPxfVeW/view?usp=share_link" target="_blank" rel="noopener noreferrer">Derribando mitos sobre las cuotas de g&eacute;nero</a></p>
+          <p class="item-extra">Diario El Mercurio, August 2025.</p>
+        </div>
+
+        <div class="item">
+          <p class="item-title"><a href="https://drive.google.com/file/d/12hlStME1tQU3BSntiWYUGKtuiZD2G0g4/view?usp=share_link" target="_blank" rel="noopener noreferrer">&iquest;Avances o estancamiento?</a></p>
+          <p class="item-extra">Diario La Segunda, April 2024.</p>
+        </div>
+
+        <div class="item">
+          <p class="item-title"><a href="https://drive.google.com/file/d/1g9OF6sRhRjao7ehCGXnd-KEjAXLTvJID/view?usp=sharing" target="_blank" rel="noopener noreferrer">Ley Sanna: un cambio apresurado</a></p>
+          <p class="item-extra">Diario La Segunda, September 2023.</p>
+        </div>
+
+        <div class="item">
+          <p class="item-title"><a href="https://drive.google.com/file/d/1LwKcM7o9nWoVpvH2rNyRT6s0t_ynhQNP/view?usp=sharing" target="_blank" rel="noopener noreferrer">Teletrabajo: &iquest;una modalidad de trabajo o de cuidado?</a></p>
+          <p class="item-extra">Diario El Pulso, August 2023.</p>
+        </div>
+
+        <div class="item">
+          <p class="item-title"><a href="https://drive.google.com/file/d/13cBylDbcCGjpn_lwfjpHYnf9K44w_Vjx/view?usp=share_link" target="_blank" rel="noopener noreferrer">Bono y brechas: &iquest;C&oacute;mo alcanzar la meta?</a></p>
+          <p class="item-extra">Diario El Pulso, July 2023.</p>
+        </div>
+
+        <div class="item">
+          <p class="item-title"><a href="https://drive.google.com/file/d/1nKsQ-L4if1oo5-HYCIGqDiYXu4UrYFvF/view?usp=sharing" target="_blank" rel="noopener noreferrer">Cuando una hora es m&aacute;s que una hora</a></p>
+          <p class="item-extra">Diario La Tercera, August 2019.</p>
+        </div>
+
+        <div class="item">
+          <p class="item-title"><a href="http://econ.uchile.cl/es/noticia/columna-de-opinion-cuarta-revolucion-industrial-mas-que-una-amenaza-un-desafio" target="_blank" rel="noopener noreferrer">Cuarta revoluci&oacute;n industrial: m&aacute;s que una amenaza, un desaf&iacute;o</a></p>
+          <p class="item-extra">Diario El Mercurio, July 2019.</p>
+        </div>
+
+        <div class="item">
+          <p class="item-title"><a href="https://drive.google.com/file/d/1xV1mPLwKfkpsG1qr1TRmatSis9hX792C/view?usp=sharing" target="_blank" rel="noopener noreferrer">El desaf&iacute;o de la reinserci&oacute;n social</a></p>
+          <p class="item-extra">Diario La Segunda, November 2018.</p>
+        </div>
+
+        <div class="item">
+          <p class="item-title"><a href="https://drive.google.com/file/d/14F9qSiz0gKgCjxKcs4tENYdlC4ZWz8N0/view?usp=sharing" target="_blank" rel="noopener noreferrer">La revoluci&oacute;n empieza por casa</a></p>
+          <p class="item-extra">Diario La Segunda, July 2018.</p>
+        </div>
+
+        <div class="item">
+          <p class="item-title"><a href="https://drive.google.com/file/d/16CERrZNqW_ZH8A1WuwPiDwfeh-QCjKSEHbigb54RoCk0j5A/view?usp=sharing" target="_blank" rel="noopener noreferrer">Avances y desaf&iacute;os en la inclusi&oacute;n laboral</a></p>
+          <p class="item-extra">Diario El Pulso, March 2018.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="content footer">
+    <div>&copy; Francisca P&eacute;rez</div>
+  </footer>
+</div>
 
 </body>
 </html>
