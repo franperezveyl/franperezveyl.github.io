@@ -47,25 +47,55 @@
   }
 
   .topbar {
-    padding: 18px 0 10px;
-    border-bottom: 1px solid var(--line);
-    margin-bottom: 28px;
+    padding: 18px 0 8px;
+  }
+
+  .topbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
   }
 
   .site-title {
-    margin: 0 0 10px;
-    font-size: 28px;
-    font-weight: 500;
+    margin: 0;
+    font-size: 22px;
+    font-weight: 400;
     line-height: 1.2;
     font-family: var(--font-brand);
   }
 
   .site-nav {
     display: flex;
-    gap: 18px;
+    gap: 34px;
     flex-wrap: wrap;
-    font-size: 13px;
+    font-size: 14px;
     font-family: var(--font-ui);
+  }
+
+  .site-nav a {
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .site-nav a:hover {
+    text-decoration: underline;
+  }
+
+  .hero-name {
+    border-bottom: 1px solid var(--line);
+    padding: 44px 0 54px;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+
+  .hero-name h1 {
+    margin: 0;
+    color: #4f7260;
+    font-family: var(--font-brand);
+    font-size: 70px;
+    font-weight: 700;
+    line-height: 1.05;
   }
 
   .content {
@@ -75,31 +105,41 @@
 
   .intro {
     display: grid;
-    grid-template-columns: 1fr 220px;
-    gap: 36px;
+    grid-template-columns: 360px minmax(0, 1fr);
+    gap: 56px;
     align-items: start;
-    margin-bottom: 52px;
+    padding-bottom: 54px;
+    margin-bottom: 54px;
+    border-bottom: 1px solid var(--line);
   }
 
-  .intro h1 {
-    margin: 0 0 14px;
-    font-size: 23px;
-    font-weight: 500;
-    font-family: var(--font-brand);
+  .intro-copy {
+    padding-top: 12px;
   }
 
   .intro p {
     margin: 0 0 12px;
-    max-width: 760px;
-    font-size: 14px;
+    max-width: 700px;
+    font-size: 18px;
+    line-height: 1.65;
+  }
+
+  .position-line {
+    margin-bottom: 18px;
   }
 
   .intro-links {
-    margin-top: 10px;
+    margin-top: 24px;
   }
 
   .intro-links p {
-    margin-bottom: 6px;
+    margin-bottom: 10px;
+  }
+
+  .intro-label {
+    display: inline-block;
+    min-width: 76px;
+    font-weight: 700;
   }
 
   .portrait img {
@@ -135,7 +175,7 @@
   }
 
   .subsection-title {
-    margin: 0 0 26px 160px;
+    margin: 0 0 26px 180px;
     font-size: 16px;
     font-weight: 400;
     color: var(--text);
@@ -146,8 +186,8 @@
   }
 
   .item {
-    margin: 0 0 38px 160px;
-    max-width: 1040px;
+    margin: 0 0 38px 180px;
+    max-width: 980px;
   }
 
   .item:last-child {
@@ -162,13 +202,13 @@
 
   .item-title {
     font-weight: 400;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.55;
   }
 
   .item-extra {
     color: var(--text);
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1.65;
   }
 
@@ -202,9 +242,25 @@
       padding-right: 16px;
     }
 
+    .topbar-inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .hero-name {
+      padding: 28px 0 34px;
+      margin-bottom: 34px;
+    }
+
+    .hero-name h1 {
+      font-size: 44px;
+    }
+
     .intro {
       grid-template-columns: 1fr;
       gap: 20px;
+      padding-bottom: 40px;
+      margin-bottom: 40px;
     }
 
     .subsection-title,
@@ -213,7 +269,7 @@
     }
 
     .portrait {
-      max-width: 220px;
+      max-width: 280px;
     }
   }
 </style>
@@ -221,7 +277,7 @@
 <body>
 <div class="page">
   <header class="topbar">
-    <div class="content">
+    <div class="content topbar-inner">
       <div class="site-title">Francisca P&eacute;rez</div>
       <nav class="site-nav" aria-label="Primary">
         <a href="#research">Research</a>
@@ -231,21 +287,24 @@
   </header>
 
   <main class="content">
+    <section class="hero-name" aria-label="Page title">
+      <h1>Francisca P&eacute;rez</h1>
+    </section>
+
     <section class="intro">
-      <div>
-        <h1>Francisca P&eacute;rez</h1>
-        <p>Assistant Professor at the Business School of Universidad Adolfo Ib&aacute;&ntilde;ez.</p>
+      <div class="portrait">
+        <img src="FPerez_03.jpeg" alt="Francisca P&eacute;rez">
+      </div>
+
+      <div class="intro-copy">
+        <p class="position-line">Assistant Professor at the Business School of Universidad Adolfo Ib&aacute;&ntilde;ez.</p>
         <p>I am a macroeconomist working primarily on labor economics. My research studies how households, workers, and firms adjust their behavior in response to constraints related to technology, labor market regulation, care responsibilities, and social norms. I am interested in understanding how these forces shape time allocation, occupational choices, and labor demand. I use rich microdata and a combination of causal inference and structural methods.</p>
 
         <div class="intro-links">
-          <p>Contact &nbsp; <a href="mailto:mfrancisca.perez@uai.cl">mfrancisca.perez@uai.cl</a></p>
-          <p><a href="https://drive.google.com/file/d/1a5U8J92BGoEzKfPeabXoLf1Qn-KCoYdW/view?usp=share_link" target="_blank" rel="noopener noreferrer">CV</a> &nbsp; <a href="https://scholar.google.com/citations?user=7reiZ4gAAAAJ&hl=es" target="_blank" rel="noopener noreferrer">Google Scholar</a></p>
-          <p><a href="https://orcid.org/0000-0001-9197-3518" target="_blank" rel="noopener noreferrer">ORCID</a> &nbsp; <a href="https://twitter.com/mfperezv" target="_blank" rel="noopener noreferrer">Twitter</a></p>
+          <p><span class="intro-label">Contact</span><a href="mailto:mfrancisca.perez@uai.cl">mfrancisca.perez@uai.cl</a></p>
+          <p><span class="intro-label">CV</span><a href="https://drive.google.com/file/d/1a5U8J92BGoEzKfPeabXoLf1Qn-KCoYdW/view?usp=share_link" target="_blank" rel="noopener noreferrer">CV</a> <a href="https://scholar.google.com/citations?user=7reiZ4gAAAAJ&hl=es" target="_blank" rel="noopener noreferrer">Google Scholar</a></p>
+          <p><span class="intro-label">Profiles</span><a href="https://orcid.org/0000-0001-9197-3518" target="_blank" rel="noopener noreferrer">ORCID</a> <a href="https://twitter.com/mfperezv" target="_blank" rel="noopener noreferrer">Twitter</a></p>
         </div>
-      </div>
-
-      <div class="portrait">
-        <img src="FPerez_03.jpeg" alt="Francisca P&eacute;rez">
       </div>
     </section>
 
